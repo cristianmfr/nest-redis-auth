@@ -5,6 +5,7 @@ import { AuthService } from 'src/modules/auth/auth.service'
 
 interface JwtPayload {
 	sub: string
+	account: string
 	email: string
 }
 
@@ -27,6 +28,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
 		return {
 			userId: payload.sub,
+			account: payload.account,
 			email: payload.email,
 		}
 	}
